@@ -4,5 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DogRepo extends JpaRepository<Dog, Integer> {
+// using JPA, change if cringe
+public interface DogRepository extends JpaRepository<Dog, Long> {
+
 }

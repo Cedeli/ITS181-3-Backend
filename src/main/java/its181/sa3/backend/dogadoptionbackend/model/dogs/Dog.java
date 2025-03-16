@@ -1,59 +1,52 @@
 package its181.sa3.backend.dogadoptionbackend.model.dogs;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "dogs")
 public class Dog {
-
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
+    private String breed;
     private int age;
-    private String temperament;
+    private boolean adopted;
 
-    public int getId() {
-        return id;
-    }
+    // Constructors
+    public Dog() {}
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Dog(String name, String breed, int age, boolean adopted) {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
+        this.breed = breed;
         this.age = age;
+        this.adopted = adopted;
+    }
+
+    public Dog(long l, String charlie, int age, String calm) {
+    }
+
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getBreed() { return breed; }
+    public void setBreed(String breed) { this.breed = breed; }
+
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+
+    public boolean isAdopted() { return adopted; }
+    public void setAdopted(boolean adopted) { this.adopted = adopted; }
+
+    public void setTemperament(Object temperament) {
     }
 
     public String getTemperament() {
-        return temperament;
-    }
-
-    public void setTemperament(String temperament) {
-        this.temperament = temperament;
-    }
-
-    @Override
-    public String toString() {
-        return "dog{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", temperament='" + temperament + '\'' +
-                '}';
+        return "";
     }
 }
