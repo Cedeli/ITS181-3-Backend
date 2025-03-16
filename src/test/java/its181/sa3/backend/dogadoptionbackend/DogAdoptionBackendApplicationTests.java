@@ -41,7 +41,7 @@ class DogAdoptionBackendApplicationTests {
 		dogDTO.setAge(3);
 
 		Dog dog = new Dog();
-		dog.setId(1);
+		dog.setId(1L);
 		dog.setName(dogDTO.getName());
 		dog.setAge(dogDTO.getAge());
 
