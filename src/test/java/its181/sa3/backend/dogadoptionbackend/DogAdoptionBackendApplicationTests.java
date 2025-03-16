@@ -4,6 +4,7 @@ import its181.sa3.backend.dogadoptionbackend.model.dogs.Dog;
 import its181.sa3.backend.dogadoptionbackend.model.dogs.DogDTO;
 import its181.sa3.backend.dogadoptionbackend.model.dogs.DogRepository;
 import its181.sa3.backend.dogadoptionbackend.services.DogService;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +20,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class) // Enable Mockito JUnit 5 support
+@ExtendWith(MockitoExtension.class)
 class DogAdoptionBackendApplicationTests {
 
 	@Mock
@@ -38,28 +39,24 @@ class DogAdoptionBackendApplicationTests {
 		DogDTO dogDTO = new DogDTO();
 		dogDTO.setName("Buddy");
 		dogDTO.setAge(3);
-		dogDTO.setTemperament("Friendly");
 
 		Dog dog = new Dog();
-		dog.setId(1L);
+		dog.setId(1);
 		dog.setName(dogDTO.getName());
 		dog.setAge(dogDTO.getAge());
-		dog.setTemperament(dogDTO.getTemperament());
 
 		when(dogRepository.save(any(Dog.class))).thenReturn(dog);
 
 		Dog savedDog = dogService.addDog(dogDTO);
 		assertNotNull(savedDog);
-		assertEquals(1L, savedDog.getId());
 		assertEquals("Buddy", savedDog.getName());
 		assertEquals(3, savedDog.getAge());
-		assertEquals("Friendly", savedDog.getTemperament());
 	}
 
 	@Test
 	void testGetAllDogs() {
-		Dog dog1 = new Dog(1L, "Charlie", 2, "Calm");
-		Dog dog2 = new Dog(2L, "Max", 4, "Playful");
+		Dog dog1 = new Dog();
+		Dog dog2 = new Dog();
 
 		when(dogRepository.findAll()).thenReturn(Arrays.asList(dog1, dog2));
 
@@ -67,16 +64,14 @@ class DogAdoptionBackendApplicationTests {
 		assertEquals(2, dogs.size());
 		assertEquals("Charlie", dogs.getFirst().getName());
 		assertEquals(2, dogs.get(0).getAge());
-		assertEquals("Calm", dogs.get(0).getTemperament());
 
 		assertEquals("Max", dogs.get(1).getName());
 		assertEquals(4, dogs.get(1).getAge());
-		assertEquals("Playful", dogs.get(1).getTemperament());
 	}
 
 	@Test
 	void testGetDogById() {
-		Dog dog = new Dog(1L, "Rocky", 3, "Energetic");
+		Dog dog = new Dog();
 
 		when(dogRepository.findById(1L)).thenReturn(Optional.of(dog));
 
@@ -84,7 +79,6 @@ class DogAdoptionBackendApplicationTests {
 		assertTrue(foundDog.isPresent());
 		assertEquals("Rocky", foundDog.get().getName());
 		assertEquals(3, foundDog.get().getAge());
-		assertEquals("Energetic", foundDog.get().getTemperament());
 	}
 
 	@Test

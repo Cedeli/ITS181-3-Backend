@@ -19,7 +19,6 @@ public class DogService {
         Dog dog = new Dog();
         dog.setName(dogDTO.getName());
         dog.setAge(dogDTO.getAge());
-        dog.setTemperament(dogDTO.getTemperament());
         return dogRepository.save(dog); // if not skill issue, this should save to mysql
     }
 

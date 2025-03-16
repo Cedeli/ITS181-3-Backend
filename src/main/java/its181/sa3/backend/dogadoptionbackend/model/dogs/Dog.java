@@ -7,12 +7,12 @@ import jakarta.persistence.*;
 public class Dog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    private int id;
+    private int age;
     private String name;
     private String breed;
-    private int age;
     private boolean adopted;
+
 
     // Constructors
     public Dog() {}
@@ -24,18 +24,13 @@ public class Dog {
         this.adopted = adopted;
     }
 
-    public Dog(long l, String charlie, int age, String calm) {
-    }
 
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    // alt insert my beloved
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-
-    public String getBreed() { return breed; }
-    public void setBreed(String breed) { this.breed = breed; }
 
     public int getAge() { return age; }
     public void setAge(int age) { this.age = age; }
@@ -43,10 +38,11 @@ public class Dog {
     public boolean isAdopted() { return adopted; }
     public void setAdopted(boolean adopted) { this.adopted = adopted; }
 
-    public void setTemperament(Object temperament) {
+    public String getBreed() {
+        return breed;
     }
 
-    public String getTemperament() {
-        return "";
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 }
