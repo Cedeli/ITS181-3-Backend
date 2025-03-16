@@ -13,6 +13,7 @@ class DogAdoptionBackendApplicationTests {
 
 	@Autowired
 	private UserDAO userDAO;
+	@Autowired
 	private DogDAO dogDAO;
 
 	@Test
