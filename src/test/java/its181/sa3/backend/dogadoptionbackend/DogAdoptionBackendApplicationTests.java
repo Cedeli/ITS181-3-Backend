@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 class DogAdoptionBackendApplicationTests {
 
@@ -20,6 +22,8 @@ class DogAdoptionBackendApplicationTests {
 	void addUserTest() {
 		User user = new User();
 		user.setEmail("gian@gmail.com");
+		user.setPassword("1234");
+		user.setRole("user");
 		userDAO.save(user);
 	}
 
@@ -30,6 +34,12 @@ class DogAdoptionBackendApplicationTests {
 		dogDAO.save(dog);
 	}
 
+	@Test
+	void getAllDogsTest() {
+		List<Dog> dogs = dogDAO.getAllDogs();
+		System.out.println(dogs);
+
+	}
 	@Test
 	void contextLoads() {
 	}
