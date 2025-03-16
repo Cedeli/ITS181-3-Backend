@@ -37,9 +37,9 @@ class DogAdoptionBackendApplicationTests {
 	@Test
 	void getAllDogsTest() {
 		List<Dog> dogs = dogDAO.getAllDogs();
-		System.out.println(dogs);
-
+		dogs.forEach(dog -> System.out.println("Dog: " + dog.getName() + ", Age: " + dog.getAge()));
 	}
+
 	@Test
 	void contextLoads() {
 	}
