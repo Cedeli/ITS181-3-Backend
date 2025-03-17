@@ -14,7 +14,7 @@ public class Dog {
     private Long id;
     private String name;
     private String breed;
-    private int age;
+    private String age;
     private String description;
     private boolean adopted;
     private String imageUrl;
@@ -32,7 +32,7 @@ public class Dog {
 
     public Dog() {}
 
-    public Dog(String name, String breed, int age, String description, boolean adopted, String imageUrl) {
+    public Dog(String name, String breed, String age, String description, boolean adopted, String imageUrl) {
         this.name = name;
         this.breed = breed;
         this.age = age;
@@ -58,8 +58,8 @@ public class Dog {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public int getAge() { return age; }
-    public void setAge(int age) { this.age = age; }
+    public String getAge() { return age; }
+    public void setAge(String age) { this.age = age; }
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }

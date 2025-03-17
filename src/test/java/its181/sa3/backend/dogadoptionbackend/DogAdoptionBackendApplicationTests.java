@@ -38,7 +38,7 @@ class DogAdoptionBackendApplicationTests {
 	void testAddDog() {
 		DogDTO dogDTO = new DogDTO();
 		dogDTO.setName("Buddy");
-		dogDTO.setAge(3);
+		dogDTO.setAge("3 Years");
 
 		Dog dog = new Dog();
 		dog.setId(1L);
@@ -50,7 +50,7 @@ class DogAdoptionBackendApplicationTests {
 		Dog savedDog = dogService.addDog(dogDTO);
 		assertNotNull(savedDog);
 		assertEquals("Buddy", savedDog.getName());
-		assertEquals(3, savedDog.getAge());
+		assertEquals("3 Years", savedDog.getAge());
 	}
 
 	@Test
@@ -63,10 +63,10 @@ class DogAdoptionBackendApplicationTests {
 		List<Dog> dogs = dogService.getAllDogs();
 		assertEquals(2, dogs.size());
 		assertEquals("Charlie", dogs.getFirst().getName());
-		assertEquals(2, dogs.get(0).getAge());
+		assertEquals("2 Years", dogs.get(0).getAge());
 
 		assertEquals("Max", dogs.get(1).getName());
-		assertEquals(4, dogs.get(1).getAge());
+		assertEquals("4 Years", dogs.get(1).getAge());
 	}
 
 	@Test
@@ -78,7 +78,7 @@ class DogAdoptionBackendApplicationTests {
 		Optional<Dog> foundDog = dogService.getDogById(1L);
 		assertTrue(foundDog.isPresent());
 		assertEquals("Rocky", foundDog.get().getName());
-		assertEquals(3, foundDog.get().getAge());
+		assertEquals("3 Years", foundDog.get().getAge());
 	}
 
 	@Test
