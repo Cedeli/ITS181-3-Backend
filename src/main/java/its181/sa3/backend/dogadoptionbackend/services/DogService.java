@@ -49,6 +49,9 @@ public class DogService {
                     existingDog.setName(dogDTO.getName());
                     existingDog.setBreed(dogDTO.getBreed());
                     existingDog.setAge(dogDTO.getAge());
+                    existingDog.setAdopted(dogDTO.getAdopted());
+                    existingDog.setDescription(dogDTO.getDescription());
+                    existingDog.setImageUrl(dogDTO.getImageUrl());
                     return dogRepository.save(existingDog);
                 });
     }
@@ -61,7 +64,7 @@ public class DogService {
         }
 
         Dog dog = dogOptional.get();
-        if (dog.isAdopted()) {
+        if (dog.getAdopted()) {
             throw new IllegalStateException("Dog is already adopted");
         }
 

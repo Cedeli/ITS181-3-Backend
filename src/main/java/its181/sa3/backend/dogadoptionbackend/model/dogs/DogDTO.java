@@ -5,6 +5,7 @@ public class DogDTO {
     private String breed;
     private String description;
     private String age;
+    private boolean adopted;
     private String imageUrl;
 
     public DogDTO() {}
@@ -31,5 +32,8 @@ public class DogDTO {
 
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
+    public boolean getAdopted() { return adopted; }
+    public void setAdopted(boolean adopted) { this.adopted = adopted; }
 }
 

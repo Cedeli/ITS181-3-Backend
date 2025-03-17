@@ -64,7 +64,7 @@ public class Dog {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public boolean isAdopted() { return adopted; }
+    public boolean getAdopted() { return adopted; }
     public void setAdopted(boolean adopted) { this.adopted = adopted; }
 
     public String getBreed() { return breed; }
