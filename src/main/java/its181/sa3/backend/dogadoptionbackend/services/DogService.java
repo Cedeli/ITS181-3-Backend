@@ -26,6 +26,9 @@ public class DogService {
         dog.setName(dogDTO.getName());
         dog.setBreed(dogDTO.getBreed());
         dog.setAge(dogDTO.getAge());
+        dog.setDescription(dogDTO.getDescription());
+        dog.setImageUrl(dogDTO.getImageUrl());
+
         dog.setAdopted(false);
         return dogRepository.save(dog);
     }
