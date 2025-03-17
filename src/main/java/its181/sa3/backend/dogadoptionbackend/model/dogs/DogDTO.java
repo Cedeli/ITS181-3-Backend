@@ -5,14 +5,16 @@ public class DogDTO {
     private String breed;
     private String description;
     private int age;
+    private String imageUrl;
 
     public DogDTO() {}
 
-    public DogDTO(String name, String breed, int age, String description) {
+    public DogDTO(String name, String breed, int age, String description, String imageUrl) {
         this.name = name;
         this.breed = breed;
         this.age = age;
         this.description = description;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() { return name; }
@@ -26,5 +28,8 @@ public class DogDTO {
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }
 

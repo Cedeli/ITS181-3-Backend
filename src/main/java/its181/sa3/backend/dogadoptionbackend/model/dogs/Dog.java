@@ -17,6 +17,7 @@ public class Dog {
     private int age;
     private String description;
     private boolean adopted;
+    private String imageUrl;
 
     @ManyToOne
     @JoinColumn(name = "adopter_id")
@@ -31,12 +32,13 @@ public class Dog {
 
     public Dog() {}
 
-    public Dog(String name, String breed, int age, String description, boolean adopted) {
+    public Dog(String name, String breed, int age, String description, boolean adopted, String imageUrl) {
         this.name = name;
         this.breed = breed;
         this.age = age;
         this.description = description;
         this.adopted = adopted;
+        this.imageUrl = imageUrl;
     }
 
     @PrePersist
@@ -70,6 +72,9 @@ public class Dog {
 
     public User getAdopter() { return adopter; }
     public void setAdopter(User adopter) { this.adopter = adopter; }
+
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }
